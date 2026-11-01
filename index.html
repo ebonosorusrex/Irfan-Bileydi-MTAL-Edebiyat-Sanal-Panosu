@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edebiyat Sanal Panosu</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Arka Plan Müzik ve Ses Efekti -->
+    <audio id="bg-music" loop src="assets/arkaplan.mp3"></audio>
+    <audio id="transition-sound" src="assets/gecis.mp3"></audio>
+
+    <!-- Müzik Başlatma/Kapatma Butonu (Sağ Üst) -->
+    <button id="music-toggle-btn" class="music-btn">🎵 Müzik Başlat</button>
+
+    <!-- Sol Alt Kenarda Okul Logosu -->
+    <div class="logo-container">
+        <img src="assets/logo.png" alt="İrfan Bileydi MTAL Logo">
+    </div>
+
+    <!-- Şeffaf Tam Ekran Giriş Kaplaması (Overlay) -->
+    <div id="welcome-overlay" class="welcome-overlay">
+        <div class="welcome-box">
+            <h1>Edebiyat Sanal Panosu</h1>
+            <p class="school-name">İrfan Bileydi MTAL</p>
+            <p class="welcome-desc">Her gün yenilenen atasözleri, deyimler, özdeyişler ve doğru Türkçe kullanımı ile dilimizin zenginliklerine hoş geldiniz.</p>
+            <button id="enter-btn" class="enter-btn">Panoya Giriş Yap ➔</button>
+        </div>
+    </div>
+
+    <!-- Ana Pano Kapsayıcısı -->
+    <main class="board-container">
+        
+        <!-- Sayfa 1: Günün Deyimi -->
+        <section id="page-deyim" class="page active">
+            <div class="content-card">
+                <span class="badge">Günün Deyimi</span>
+                <p id="deyim-metin" class="title-text">Yükleniyor...</p>
+                <p id="deyim-anlam" class="description">...</p>
+            </div>
+        </section>
+
+        <!-- Sayfa 2: Günün Atasözü -->
+        <section id="page-atasozu" class="page">
+            <div class="content-card">
+                <span class="badge">Günün Atasözü</span>
+                <p id="atasozu-metin" class="title-text">Yükleniyor...</p>
+                <p id="atasozu-anlam" class="description">...</p>
+            </div>
+        </section>
+
+        <!-- Sayfa 3: Günün Özdeyişi -->
+        <section id="page-ozdeyis" class="page">
+            <div class="content-card">
+                <span class="badge" style="background: #8e44ad;">Günün Özdeyişi</span>
+                <p id="ozdeyis-metin" class="title-text">Yükleniyor...</p>
+                <p id="ozdeyis-yazar" class="description" style="font-weight: bold; margin-top: 15px; color: #2c3e50;">...</p>
+            </div>
+        </section>
+
+        <!-- Sayfa 4: Türkche Değil Türkçe! -->
+        <section id="page-turkce" class="page">
+            <div class="content-card correction-card">
+                <span class="badge warning-badge">Günün Türkçe Uyarısı</span>
+                <p class="title-text warning-title">"Türkche Değil Türkçe!"</p>
+                <div class="comparison-box">
+                    <div class="wrong">❌ Yabancı / Yanlış: <span id="turkce-yabanci">...</span></div>
+                    <div class="correct">✔️ Türkçe Karşılığı: <span id="turkce-dogru">...</span></div>
+                </div>
+                <p class="description">Dilimizin öz yapısını koruyalım, yabancı kelimeler yerine Türkçe karşılıklarını tercih edelim.</p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Sayfa Geçiş Navigasyonu -->
+    <nav class="navigation">
+        <button class="nav-btn active" onclick="switchPage('page-deyim')">Günün Deyimi</button>
+        <button class="nav-btn" onclick="switchPage('page-atasozu')">Günün Atasözü</button>
+        <button class="nav-btn" onclick="switchPage('page-ozdeyis')">Günün Özdeyişi</button>
+        <button class="nav-btn" onclick="switchPage('page-turkce')">Türkçe Hassasiyeti</button>
+    </nav>
+
+    <script src="script.js"></script>
+</body>
+</html>
